@@ -11,3 +11,4 @@
       (quit (message "%s" (cadr err))
             nil))))
 
+(provide 'init-local)
