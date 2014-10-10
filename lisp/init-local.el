@@ -4,7 +4,7 @@
 
 (setq-default desktop-save-mode nil)
 (setq-default fill-column 80)
-
+(setq-default org-hide-leading-stars 'hidestars)
 (add-hook 'text-mode-hook 'turn-on-auto-fill) ;; Set auto-fill-mode
 
 
