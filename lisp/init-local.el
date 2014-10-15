@@ -34,7 +34,6 @@
 (setq jabber-roster-line-format "  %c %-25n %u %-8s ")
 (setq jabber-roster-show-bindings nil)
 (setq jabber-roster-show-title nil)
-(setq jabber-show-resources nil)
+(setq jabber-show-resources t)
 (setq jabber-chat-buffer-show-avatar nil)
-
 (provide 'init-local)
