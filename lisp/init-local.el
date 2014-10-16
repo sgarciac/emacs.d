@@ -36,4 +36,5 @@
 (setq jabber-roster-show-title nil)
 (setq jabber-show-resources t)
 (setq jabber-chat-buffer-show-avatar nil)
+
 (provide 'init-local)
