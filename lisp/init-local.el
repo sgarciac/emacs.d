@@ -37,4 +37,7 @@
 (setq jabber-show-resources t)
 (setq jabber-chat-buffer-show-avatar nil)
 
+(require 'zone)
+(zone-when-idle 120)
+
 (provide 'init-local)
