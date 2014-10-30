@@ -5,8 +5,9 @@
 (setq-default desktop-save-mode nil)
 (setq-default fill-column 80)
 (setq-default org-hide-leading-stars 'hidestars)
+(setq auto-indent-start-org-indent t)
 (add-hook 'text-mode-hook 'turn-on-auto-fill) ;; Set auto-fill-mode
-
+(add-hook 'html-erb-mode-hook 'turn-off-auto-fill)
 
 ;; some crap to fix a pasteboard problem in mac:
 (when (eq window-system 'ns)
@@ -38,6 +39,6 @@
 (setq jabber-chat-buffer-show-avatar nil)
 
 (require 'zone)
-(zone-when-idle 120)
+(zone-when-idle 600)
 
 (provide 'init-local)
