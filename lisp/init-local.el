@@ -38,8 +38,6 @@
 (setq jabber-show-resources t)
 (setq jabber-chat-buffer-show-avatar nil)
 (add-hook 'jabber-post-connect-hooks 'jabber-autoaway-start)
-
-(require 'zone)
-(zone-when-idle 600)
+(set-face-attribute 'default nil :height 140)
 
 (provide 'init-local)
