@@ -19,7 +19,7 @@
 (after-load 'slime
   (setq slime-protocol-version 'ignore)
   (setq slime-net-coding-system 'utf-8-unix)
-  (slime-setup '(slime-repl slime-fuzzy))
+  (slime-setup '(slime-repl slime-fuzzy slime-asdf))
   (setq slime-complete-symbol*-fancy t)
   (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
   (add-hook 'slime-mode-hook 'sanityinc/slime-setup))
