@@ -13,11 +13,6 @@
 (let ((versioned-package-dir
        (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
                          user-emacs-directory)))
-  (when (file-directory-p package-user-dir)
-    (message "Default package locations have changed in this config: renaming old package dir %s to %s."
-             package-user-dir
-             versioned-package-dir)
-    (rename-file package-user-dir versioned-package-dir))
   (setq package-user-dir versioned-package-dir))
 
 
@@ -37,6 +32,10 @@
              `("melpa" . ,(if sanityinc/no-ssl
                               "http://melpa.org/packages/"
                             "https://melpa.org/packages/")))
+
+(unless sanityinc/no-ssl
+  ;; Force SSL for GNU ELPA
+  (setcdr (assoc "gnu" package-archives) "https://elpa.gnu.org/packages/"))
 
 ;; NOTE: In case of MELPA problems, the official mirror URL is
 ;; https://www.mirrorservice.org/sites/stable.melpa.org/packages/
