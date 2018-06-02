@@ -41,4 +41,16 @@
 
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
+                                        ;(flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+                                        ;(flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+
+(setq yas-snippet-dirs '("~/dev/ng2-ts-snippets/snippets"))
+(yas-global-mode 1)
+
+
+(with-eval-after-load 'tide
+  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+)
+
 (provide 'init-local)
