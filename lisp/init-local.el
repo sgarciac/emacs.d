@@ -1,7 +1,7 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'none)
 (setq ruby-insert-encoding-magic-comment nil)
-
+(setq echo-keystrokes .1)
 (setq-default desktop-save-mode nil)
 (setq-default fill-column 80)
 (setq-default org-hide-leading-stars 'hidestars)
@@ -17,6 +17,7 @@
       (quit (message "%s" (cadr err))
             nil))))
 
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -24,6 +25,10 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
+
+  ;; formats the buffer before saving
+  (add-hook 'before-save-hook 'tide-format-before-save)
+
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
@@ -32,8 +37,6 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
