@@ -14,11 +14,9 @@ CVS
 .*.lock
 /tramp
 /TODO
-/anything-c-adaptive-history
 /.org-id-locations
 cookies
 /newsticker
-/ac-comphist.dat
 \#*
 /elpa
 /elpa-*
@@ -51,3 +49,5 @@ site-lisp/package/
 /rake.cache
 /plantuml.jar
 /magithub
+.cache/
+/forge-database.sqlite
