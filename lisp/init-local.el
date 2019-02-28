@@ -54,6 +54,17 @@
 (with-eval-after-load 'tide
   (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
   (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
-)
+  )
+
+
+(defun my-go-mode-hook ()
+  "Go setup."
+  (setq tab-width 2 indent-tabs-mode 1)
+  (local-set-key (kbd "M-.") #'godef-jump)
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  )
+
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
 
 (provide 'init-local)
