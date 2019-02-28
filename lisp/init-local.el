@@ -1,3 +1,9 @@
+;;; package -- my local init
+;;; Commentary:
+;;; Nothing really
+
+;;; Code:
+(require 'use-package)
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'none)
 (setq ruby-insert-encoding-magic-comment nil)
@@ -8,6 +14,8 @@
 (setq auto-indent-start-org-indent t)
 (add-hook 'text-mode-hook 'turn-on-auto-fill) ;; Set auto-fill-mode
 (add-hook 'html-erb-mode-hook 'turn-off-auto-fill)
+(setq-default preferred-javascript-indent-level 2)
+(setq-default typescript-indent-level 2)
 
 ;; fix a pasteboard problem in mac:
 (when (eq window-system 'ns)
@@ -19,20 +27,25 @@
 
 
 (defun setup-tide-mode ()
+  "Setup the tide mode."
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
+  (prettier-js-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
 
   ;; formats the buffer before saving
-  (add-hook 'before-save-hook 'tide-format-before-save)
-
+  ;; WE USE PRETTIER-JS INSTEAD
+  ;;(add-hook 'before-save-hook 'tide-format-before-save)
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
   (company-mode +1))
+
+(eval-after-load "tide"
+  '(define-key tide-mode-map (kbd "C-!") 'tide-fix))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
@@ -56,7 +69,6 @@
   (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
   )
 
-
 (defun my-go-mode-hook ()
   "Go setup."
   (setq tab-width 2 indent-tabs-mode 1)
@@ -66,5 +78,5 @@
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
-
 (provide 'init-local)
+;;; init-local ends here
