@@ -16,7 +16,7 @@
 (setq auto-indent-start-org-indent t)
 (add-hook 'text-mode-hook 'turn-on-auto-fill) ;; Set auto-fill-mode
 (add-hook 'html-erb-mode-hook 'turn-off-auto-fill)
-(setq-default preferred-javascript-indent-level 2)
+;; (setq-default preferred-javascript-indent-level 2)
 (setq-default typescript-indent-level 2)
 
 ;; fix a pasteboard problem in mac:
@@ -29,7 +29,6 @@
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
-
 
 (setq yas-snippet-dirs '("~/dev/ng2-ts-snippets/snippets"))
 (yas-global-mode 1)
@@ -67,6 +66,7 @@
   (indent-tabs-mode 1)
   :bind (("M-." . godef-jump))
   :hook go-mode-hook
+	:init (add-hook 'before-save-hook #'gofmt-before-save)
   )
 
 (provide 'init-local)
