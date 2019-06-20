@@ -6,6 +6,7 @@
 (package-install 'use-package)
 (require 'use-package)
 
+(setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'none)
 (setq ruby-insert-encoding-magic-comment nil)
@@ -50,6 +51,7 @@
 	(tide-hl-identifier-mode +1)
 	(company-mode +1)
 	)
+
 
 (use-package tide
   :ensure t
