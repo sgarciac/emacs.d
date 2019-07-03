@@ -61,6 +61,14 @@
   :hook ((typescript-mode . setup-tide-mode))
 	)
 
+(use-package web-mode
+  :mode ("\\.tsx$" . web-mode)
+  :init
+	(setup-tide-mode))
+
+(flycheck-add-mode 'typescript-tslint 'web-mode)
+
+
 (use-package go-mode
   :ensure t
   :custom
